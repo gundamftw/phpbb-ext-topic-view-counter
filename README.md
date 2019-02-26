@@ -14,3 +14,6 @@ Go to ACP on your forum, then go to Customize->Manage extensions and enable Topi
 
 ### after
 ![after](https://user-images.githubusercontent.com/10624724/53447992-674df600-39e4-11e9-8eee-e85c63382a0b.jpg)
+
+### Important Notes: 
+This extension will stores IP addresses from guests and view time from registered users, board owners please take that into consideration with their GDPR compliance.
