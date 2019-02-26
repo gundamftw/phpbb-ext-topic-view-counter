@@ -1,0 +1,3 @@
+parameters:
+    lansingred.topicviewcounter.tables.uidcounter: '%core.table_prefix%topic_view_uid_counter'
+    lansingred.topicviewcounter.tables.ipcounter: '%core.table_prefix%topic_view_ip_counter'

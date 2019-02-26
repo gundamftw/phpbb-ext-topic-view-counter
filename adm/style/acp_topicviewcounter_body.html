@@ -1,0 +1,34 @@
+{% include 'overall_header.html' %}
+
+<h1>{{ lang('ACP_TOPICVIEWCOUNTER_TITLE') }}</h1>
+
+{% if S_ERROR %}
+	<div class="errorbox">
+		<h3>{{ lang('WARNING') }}</h3>
+		<p>{{ ERROR_MSG }}</p>
+	</div>
+{% endif %}
+
+<form id="topicviewcounter_acp" name="topicviewcounter_acp" method="post" action="{{ U_ACTION }}">
+
+	<fieldset>
+		<legend>{{ lang('SETTINGS') }}</legend>
+		<dl>
+			<dt><label for="topicviewcounter_timespan">{{ lang('ACP_TOPICVIEWCOUNTER_TIMESPAN') }} ({{ lang('UNIT_TIME_HOUR') }}) </label><br />
+				<span>{{ lang('ACP_TOPICVIEWCOUNTER_TIMESPAN_DETAIL') }}<br/>
+						(default=3  max=24)</span>
+			</dt>
+			<dd>
+				<input type="text" name="topicviewcounter_timespan" maxlength="10" size="12" value="{{ ACP_TOPICVIEWCOUNTER_TIMESPAN }}"/> {{ lang('UNIT_TIME_HOUR') }}
+			</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+
+</form>
+
+{% include 'overall_footer.html' %}

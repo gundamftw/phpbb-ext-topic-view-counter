@@ -1,0 +1,30 @@
+{
+    "name": "lansingred/topicviewcounter",
+    "type": "phpbb-extension",
+    "description": "Replaced the topic view numbers on the viewforum page. This topic view counter register a new view from a user based on time span set from his last visit of the topic page. Time span can be custom defined. So view number won't increase from spamming.",
+    "homepage": "",
+    "version": "1.0.2",
+    "time": "2019-02-25",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "lansingred",
+            "email": "",
+            "homepage": "",
+            "role": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "display-name": "Topic View Counter",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.2.0,<3.3.0@dev"
+        }
+    },
+    "require-dev": {
+        "phing/phing": "2.4.*"
+    }
+}

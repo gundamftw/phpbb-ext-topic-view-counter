@@ -1,0 +1,30 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    lansingred.topicviewcounter.listener:
+        class: lansingred\topicviewcounter\event\main_listener
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+            - '@user'
+            - '@dbal.conn'
+            - '@request'
+            - '%lansingred.topicviewcounter.tables.uidcounter%'
+            - '%lansingred.topicviewcounter.tables.ipcounter%'
+
+        tags:
+            - { name: event.listener }
+
+    lansingred.topicviewcounter.acp_listener:
+        class: lansingred\topicviewcounter\event\acp_listener
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@user'
+            - '@request'
+        tags:
+            - { name: event.listener }
