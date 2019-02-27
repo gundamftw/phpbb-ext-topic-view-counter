@@ -56,9 +56,6 @@ class initial_install extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			// store table_prefix to config so you can grab it from listener
-			['config.add', ['table_prefix', $this->table_prefix]],
-
 			// copy topic_views and set it as the initial value for topic_views_adjust
 			['custom', [[$this, 'set_initial_topic_views_adjusted']]]
 		];

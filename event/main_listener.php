@@ -44,6 +44,9 @@ class main_listener implements EventSubscriberInterface
 	/* @var \phpbb\request\request */
 	protected $request;
 
+	/* passed in from services.yml */
+	protected $table_prefix;
+
 	/**
 	 * Constructor
 	 *
@@ -61,7 +64,8 @@ class main_listener implements EventSubscriberInterface
 								\phpbb\db\driver\driver_interface $db,
 								\phpbb\request\request $request,
 								$uid_counter_table,
-								$ip_counter_table)
+								$ip_counter_table,
+								$table_prefix)
 	{
 		$this->config				= $config;
 		$this->helper   			= $helper;
@@ -72,6 +76,7 @@ class main_listener implements EventSubscriberInterface
 		$this->request				= $request;
 		$this->uid_counter_table 	= $uid_counter_table;
 		$this->ip_counter_table 	= $ip_counter_table;
+		$this->table_prefix			= $table_prefix;
 	}
 
 	public static function getSubscribedEvents()
@@ -108,7 +113,7 @@ class main_listener implements EventSubscriberInterface
 		$user_ip = $user_id == 1 ? $this->user->ip : null;
 
 		// this config was set from update_data() in the migration file
-		$topics_table = $this->config['table_prefix'] . 'topics';
+		$topics_table = $this->table_prefix . 'topics';
 
 		// convert hours to seconds
 		$user_defined_timespan = (int) ($this->config['topicviewcounter_timespan'] * 60 * 60);
